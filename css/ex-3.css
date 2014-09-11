@@ -45,10 +45,7 @@ h1{
 	overflow: hidden;
 	background-color: #ccc;
 	width: 100%;
-	/************
-	Make sure you uncomment the display: none;
 	display:none;
-	************/
 }
 .mainnav li{
 	float: left;
