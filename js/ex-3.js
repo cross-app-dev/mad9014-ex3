@@ -17,14 +17,28 @@ Make sure you uncomment the CSS file
 where it is setting the nav menu to
 display:none;
 ****************************************/
-/* Extra function to toggle value of CSS display property. Just to improve the code redability. */
-var toggleDisplay = function (displayValue){
+
+/* Utility function to check if the passed string is empty or not. */
+var isEmpty = function (value) {
+    return value? false:true;
+}
+
+/* This function is cross-platform safe to obtain display property of given element node. */
+var getDisplayProperty = function (elemNode) {
 
     /* style.display will only return a valid value ("none" or "block") when it’s explicitly set from JS or from the style attribute which
-       is applied to the HTML tag in HTML file. Since it is set inside CSS file, it will retrun empty string for the first time only.
-       Handle this corner case by checking if display value is empty string, just toggle it to block value. */
-    return (("none" === displayValue) ||
-             ("" === displayValue))? "block":"none";
+       is applied to the HTML tag inside HTML file. Since display property is set inside CSS file, it will retrun empty string for the
+       first time only.
+       Handle this corner case by calling getComputedStyle method which gives the values of all the CSS properties of an element after
+       applying the active stylesheets */
+    return isEmpty(elemNode.style.display)?
+        window.getComputedStyle(elemNode,null).getPropertyValue("display"):
+        elemNode.style.display;
+}
+
+/* Extra function to toggle value of CSS display property. Just to improve the code redability. */
+var toggleDisplay = function (displayValue) {
+    return ("none" === displayValue)? "block":"none";
 }
 
 /* According to second requirement, this function will run on each time, image is clicked. */
@@ -36,8 +50,7 @@ var onImageClicked = function (){
     var navElemNode = document.querySelector(".mainnav");
 
     /* Toggle display of main navigation element between none and block values. */
-    navElemNode.style.display = toggleDisplay(navElemNode.style.display);
-    //console.log("After toggling: ", navElemNode.style.display);
+    navElemNode.style.display = toggleDisplay(getDisplayProperty(navElemNode));
 }
 
 /* According to the first requirement, this function will run after loading the page. */
