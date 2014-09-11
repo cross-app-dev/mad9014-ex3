@@ -1,0 +1,105 @@
+@charset "utf-8";
+/* CSS Document */
+/************************************
+		Defaults
+************************************/
+*{
+	padding: 0;
+	margin: 0;
+}
+html{
+	font-size:62.5%;
+	font-family:"PT Sans Narrow", sans-serif;
+}
+body{
+
+}
+.wrapper{
+	max-width:500px;
+}
+/************************************
+		Header
+************************************/
+header{
+	background-color: #ccc;
+	border-bottom:3px solid #333;
+}
+h1{
+	font-size: 3.0em;
+	line-height: 1;
+	padding: 5px 10px;
+}
+.menu-control{
+	float: right;
+	padding: 5px 10px;
+}
+.menu-toggle{
+	width: 32px;
+	height: 32px;
+	cursor: pointer;
+}
+/************************************
+		Navigation
+************************************/
+.mainnav{
+	overflow: hidden;
+	background-color: #ccc;
+	width: 100%;
+	/************
+	Make sure you uncomment the display: none;
+	display:none;
+	************/
+}
+.mainnav li{
+	float: left;
+	display: inline-block;
+	width: 50%;
+}
+.navbtn{
+	display: block;
+	padding: 5px;
+	border: 1px solid white;
+	font-size: 2.0em;
+	text-decoration: none;
+	color: #e4e4e4;
+	background-color: #333;
+	text-align: center;
+}
+.navbtn:hover,
+.navbtn:active,
+.navbtn:focus{
+	color: #333;
+	background-color: #e4e4e4;
+}
+/************************************
+		Main Content
+************************************/
+.main{
+	padding: 10px;
+	background-color: #e4e4e4;
+}
+.main h2{
+	color: #222;
+	font-size: 2.6em;
+	line-height: 1.6;
+}
+.main p{
+	padding: 10px 0;
+	color: #444;
+	font-size: 1.8em;
+	line-height: 1.4;
+}
+
+/************************************
+		Footer
+************************************/
+.footer{
+	width: 100%;
+	background-color: #000;
+	color: #ccc;
+	font-size: 1.0em;
+}
+.footer p{
+	padding: 5px 10px;
+	text-align:center;
+}
